@@ -1,0 +1,235 @@
+﻿@*Name: Harshal Thavrani
+    Student Id: 8733610
+    Assignment 3*@
+@model IEnumerable<A3_HT3610.Models.Audit>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Audit Records</h1>
+<ul class="nav nav-tabs">
+    <li class="active"><a class="text-dark" data-toggle="tab" href="#all">All</a></li>
+    &emsp;
+    <li><a class="text-dark" data-toggle="tab" href="#cashin">Cash In</a></li>
+    &emsp;
+    <li><a class="text-dark" data-toggle="tab" href="#cashout">Cash Out</a></li>
+    &emsp;
+    <li><a class="text-dark" data-toggle="tab" href="#win">Win</a></li>
+    &emsp;
+    <li><a class="text-dark" data-toggle="tab" href="#lose">Lose</a></li>
+</ul>
+<div class="tab-content">
+    <div id="all" class="tab-pane show fade in active">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(t => t.CreatedDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(t => t.PlayerName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(t => t.AuditType.Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(t => t.Amount)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var t in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => t.CreatedDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => t.PlayerName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => t.AuditType.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => t.Amount)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div id="cashin" class="tab-pane fade">
+        <table class="table">
+            <thead>
+                <tr>
+
+                    <th>
+                        @Html.DisplayNameFor(t => t.CreatedDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(t => t.PlayerName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(t => t.AuditType.Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(t => t.Amount)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var t in Model)
+                {
+                    if (t.AuditTypeId == 1)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => t.CreatedDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => t.PlayerName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => t.AuditType.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => t.Amount)
+                            </td>
+                        </tr>
+                    }
+                }
+
+            </tbody>
+        </table>
+    </div>
+    <div id="cashout" class="tab-pane fade">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(t => t.CreatedDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(t => t.PlayerName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(t => t.AuditType.Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Amount)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var t in Model)
+                {
+                    if (t.AuditTypeId == 2)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => t.CreatedDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => t.PlayerName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => t.AuditType.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => t.Amount)
+                            </td>
+                        </tr>
+                    }
+
+                }
+            </tbody>
+        </table>
+    </div>
+    <div id="win" class="tab-pane fade">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(t => t.CreatedDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(t => t.PlayerName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(t => t.AuditType.Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(t => t.Amount)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var t in Model)
+                {
+                    if (t.AuditTypeId == 3)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => t.CreatedDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => t.PlayerName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => t.AuditType.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => t.Amount)
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+    <div id="lose" class="tab-pane fade">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(t => t.CreatedDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(t => t.PlayerName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(t => t.AuditType.Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(t => t.Amount)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var t in Model)
+                {
+                    if (t.AuditTypeId == 4)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => t.CreatedDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => t.PlayerName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => t.AuditType.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => t.Amount)
+                            </td>
+                        </tr>
+                    }
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>
+

@@ -1,0 +1,49 @@
+﻿@*Name: Harshal Thavrani
+    Student Id: 8733610
+    Assignment 3*@
+@model A3_HT3610.Models.Game
+
+@{
+    ViewData["Play"] = "Game";
+}
+
+<div class="row">
+    <div class="col-6">
+        <h3>Current Bet: $@ViewData["GameCoins"]</h3>
+    </div>
+    @if (Model.GameCoins > 0)
+    {
+        <div class="col-6 text-right">
+            <a class="btn btn-success" asp-action="takeoutcoins">Take the Coins!</a>
+        </div>
+    }
+    else
+    {
+        <div class="col-6 text-right">
+            <a class="btn btn-danger" asp-action="Start">Try Again!</a>
+        </div>
+    }
+
+</div>
+<br />
+<div class="row">
+    @foreach (var tile in Model.tiles)
+    {
+        <br />
+        <div class="col-2">
+            <div class="card ">
+                <img class="card-img-top" src="@tile.GetPicturePath()">
+                <div class="card-body text-center">
+                    @if (tile.Visible)
+                    {
+                        <div>@tile.Value.ToString("N2")</div>
+                    }
+                    else
+                    {
+                        <a asp-action="Play" asp-controller="Games" asp-route-idxtile="@tile.TileIndex" class="btn btn-primary" style="color:white;">Choose</a>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+</div>
